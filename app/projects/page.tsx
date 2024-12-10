@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const metadata = {
   title: "Proyectos",
   description: "Estas en la seccion de Proyectos",
@@ -8,19 +10,19 @@ export default function Projects() {
     {
       title: "Project One",
       description: "This is the first project description.",
-      images: "./images/project1.jpg", // Imagen en la carpeta public
+      images: "/images/project1.jpg", // Imagen en la carpeta public
       tools: ["React", "TailwindCSS", "Node.js"],
     },
     {
       title: "Project Two",
       description: "This is the second project description.",
-      images: "./images/project1.jpg",
+      images: "/images/project1.jpg",
       tools: ["Next.js", "TypeScript", "Firebase"],
     },
     {
       title: "Project Three",
       description: "This is the third project description.",
-      images: "./images/project1.jpg",
+      images: "/images/project1.jpg",
       tools: ["Flutter", "Dart", "Firebase"],
     },
   ];
@@ -35,9 +37,11 @@ export default function Projects() {
             className="group bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow"
           >
             <div className="relative w-full h-40 overflow-hidden rounded-lg transform group-hover:rotate-3 group-hover:-translate-y-2 transition duration-500">
-              <img
+              <Image
                 src={project.images}
                 alt={project.title}
+                width={240}
+                height={248}
                 className="w-full h-full object-cover"
               />
             </div>
