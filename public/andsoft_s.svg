@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   viewBox="0 0 120 120"
+   version="1.1"
+   id="svg2"
+   width="120"
+   height="120"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <path
+     id="path3"
+     style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:14.7155;stroke-dasharray:none;stroke-opacity:1"
+     d="M 67.353616,0.13395311 59.879303,12.963233 52.410806,0.15138311 35.427186,9.8612931 48.564636,32.394693 3.5647267,109.65532 20.548348,119.37396 59.890928,51.826143 99.216059,119.28093 116.19967,109.5681 71.208488,32.394693 84.340115,9.8525631 Z" />
+  <rect
+     style="fill:#000000;stroke:#000000;stroke-width:16.5682;stroke-opacity:1"
+     id="rect6"
+     width="60.050705"
+     height="0.3636969"
+     x="83.524727"
+     y="28.644829"
+     transform="matrix(0.80564203,0.59240266,-0.62021287,0.78443355,0,0)" />
+</svg>
