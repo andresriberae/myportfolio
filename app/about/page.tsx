@@ -15,7 +15,7 @@ export default function Acerca() {
         <div className="flex flex-col items-center">
           <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
             <Image
-              src="/images/perfil.png"
+              src="./images/perfil.png"
               alt="Imagen circular"
               width={240}
               height={248}

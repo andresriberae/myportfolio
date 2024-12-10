@@ -10,19 +10,19 @@ export default function Projects() {
     {
       title: "Project One",
       description: "This is the first project description.",
-      images: "/images/project1.jpg", // Imagen en la carpeta public
+      images: "./images/project1.jpg", // Imagen en la carpeta public
       tools: ["React", "TailwindCSS", "Node.js"],
     },
     {
       title: "Project Two",
       description: "This is the second project description.",
-      images: "/images/project1.jpg",
+      images: "./images/project1.jpg",
       tools: ["Next.js", "TypeScript", "Firebase"],
     },
     {
       title: "Project Three",
       description: "This is the third project description.",
-      images: "/images/project1.jpg",
+      images: "./images/project1.jpg",
       tools: ["Flutter", "Dart", "Firebase"],
     },
   ];
