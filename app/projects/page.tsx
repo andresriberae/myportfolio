@@ -128,7 +128,7 @@ export default function Projects() {
                   >
                     <Image
                       aria-hidden
-                      src={`/svg/${tool.toLowerCase()}.svg`}
+                      src={`./svg/${tool.toLowerCase()}.svg`}
                       alt={tool}
                       width={24}
                       height={24}
