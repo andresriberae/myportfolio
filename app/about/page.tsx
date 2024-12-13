@@ -1,5 +1,5 @@
 "use client";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
