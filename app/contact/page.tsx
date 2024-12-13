@@ -15,7 +15,7 @@ export default function Contact() {
         rel="noopener noreferrer"
         className="group relative p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+        <div className="absolute inset-0 dark:bg-gradient-to-r from-purple-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
         <div className="relative flex gap-4 font-[family-name:var(--font-geist-mono)] items-center flex-col p-6 rounded-lg">
           <SiGmail className="text-red-500 dark:text-white text-6xl" />
           <h1 className="text-gray-800 dark:text-gray-200">Gmail</h1>
@@ -29,7 +29,7 @@ export default function Contact() {
         rel="noopener noreferrer"
         className="group relative p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+        <div className="absolute inset-0 dark:bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
         <div className="relative flex gap-4 font-[family-name:var(--font-geist-mono)] items-center flex-col p-6 rounded-lg">
           <FaLinkedin className="text-blue-500 dark:text-white text-6xl" />
           <h1 className="text-gray-800 dark:text-gray-200">LinkedIn</h1>
@@ -43,7 +43,7 @@ export default function Contact() {
         rel="noopener noreferrer"
         className="group relative p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
+        <div className="absolute inset-0 dark:bg-gradient-to-r from-purple-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
         <div className="relative flex gap-4 font-[family-name:var(--font-geist-mono)] items-center flex-col p-6 rounded-lg">
           <FaWhatsapp className="text-green-500 dark:text-white text-6xl" />
           <h1 className="text-gray-800 dark:text-gray-200">WhatsApp</h1>

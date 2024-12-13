@@ -51,10 +51,24 @@ export default function RootLayout({
                 priority
               />
             </Link>
-            {/* <Link href="/login">Login</Link> */}
-            <Link href="/about">Acerca</Link>
-            <Link href="/projects">Proyectos</Link>
-            <Link href="/contact">Contacto</Link>
+            <Link
+              href="/about"
+              className="font-medium hover:text-pink-600 transition-all"
+            >
+              Acerca
+            </Link>
+            <Link
+              href="/projects"
+              className="font-medium hover:text-pink-600 transition-all"
+            >
+              Proyectos
+            </Link>
+            <Link
+              href="/contact"
+              className="font-medium hover:text-pink-600 transition-all"
+            >
+              Contacto
+            </Link>
           </nav>
           {children}
         </div>
