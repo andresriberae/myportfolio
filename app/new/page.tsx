@@ -1,22 +1,17 @@
 "use client";
 
 import ProjectForm from "../components/ProjectForm";
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { useProjects } from "@/context/ProjectContext";
 import ProjectCard from "@/app/components/ProjectCard";
 
 export default function NewPage() {
   const { projects, loadProjects } = useProjects();
 
-  
-  // Hacer que loadProjects sea estable
-  const stableLoadProjects = useCallback(() => {
-    loadProjects();
-  }, [loadProjects]);
-
   // Cargar proyectos al montar el componente
   useEffect(() => {
-    stableLoadProjects();
+    console.log('se ejecuto el useEffect');
+    loadProjects();
   }, []);
 
   return (
