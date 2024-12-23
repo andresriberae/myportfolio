@@ -1,18 +1,21 @@
 "use client";
 
 import ProjectForm from "../components/ProjectForm";
-import { useEffect } from "react";
+import { useEffect,useCallback } from "react";
 import { useProjects } from "@/context/ProjectContext";
 import ProjectCard from "@/app/components/ProjectCard";
 
 export default function NewPage() {
   const { projects, loadProjects } = useProjects();
 
+  // Hacer que loadProjects sea estable
+  const stableLoadProjects = useCallback(loadProjects, []);
+
   // Cargar proyectos al montar el componente
   useEffect(() => {
-    console.log('se ejecuto el useEffect');
-    loadProjects();
-  }, []);
+    stableLoadProjects();
+  }, [stableLoadProjects]);
+
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 font-[family-name:var(--font-geist-sans)] justify-items-center items-center">
