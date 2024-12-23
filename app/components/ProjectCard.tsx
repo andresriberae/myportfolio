@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Image from "next/image";
 import { FaCode, FaEye } from "react-icons/fa";
@@ -8,7 +8,11 @@ import { Project } from "@prisma/client";
 
 function ProjectCard({ project }: { project: Project }) {
   const { deleteProject, setSelectedProject } = useProjects();
-  
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
 
   return (
     <div
@@ -45,13 +49,27 @@ function ProjectCard({ project }: { project: Project }) {
           </a>
         </div>
       </div>
-      <div className="p-6 flex flex-col items-center">
+      <div className="p-6 flex flex-col items-center showFullDescription " >
         <h2 className="text-xs font-semibold text-gray-800 dark:text-gray-200">
           {project.title}
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 text-center text-xs">
-          {project.description}
-        </p>
+        <div className="flex mb-4">
+          <p className="justify-center text-gray-600 dark:text-gray-400 text-center text-xs">
+            {showFullDescription
+              ? project.description
+              : `${project.description.slice(0, 15)}${
+                  project.description.length > 15 ? "... " : ""
+                }`}
+          </p>
+          {project.description.length > 15 && (
+            <button
+              onClick={toggleDescription}
+              className="text-blue-500 hover:underline text-xs self-center"
+            >
+              {showFullDescription ? "menos" : "más"}
+            </button>
+          )}
+        </div>
 
         <div className="flex justify-center items-center space-x-4 mb-4">
           {JSON.stringify(project.tools)
@@ -78,9 +96,10 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="flex justify-center items-center space-x-4">
           <button
             onClick={() => {
-              if (confirm("¿Estás seguro de eliminar el proyecto?")){
-                deleteProject(project.id)}}
+              if (confirm("¿Estás seguro de eliminar el proyecto?")) {
+                deleteProject(project.id);
               }
+            }}
             className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
           >
             Eliminar
@@ -89,7 +108,8 @@ function ProjectCard({ project }: { project: Project }) {
             onClick={() => {
               setSelectedProject(project);
             }}
-           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+          >
             Editar
           </button>
         </div>

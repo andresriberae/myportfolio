@@ -24,9 +24,10 @@ export default function Projects() {
   const stableLoadProjects = useCallback(loadProjects, []);
 
   // Cargar proyectos al montar el componente
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     stableLoadProjects();
-  }, [stableLoadProjects]);
+  }, []);
 
 
 
@@ -42,7 +43,7 @@ export default function Projects() {
             .replace(/"/g, "")
             .replace(/[\[\]\\]/g, "")
             .split(",")
-            .map((category, index) => {
+            .map((category) => {
               return category.trim();
             });
 
@@ -78,9 +79,9 @@ export default function Projects() {
 
       {/* Grid de proyectos */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {filteredProjects.map((project: Project, index: number) => (
+        {filteredProjects.map((project: Project) => (
           <div
-            key={index}
+            key={project.id}
             className="group bg-white dark:bg-transparent shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow relative"
           >
             <div className="relative w-full h-48 overflow-hidden">
