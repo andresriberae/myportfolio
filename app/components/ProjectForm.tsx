@@ -30,7 +30,11 @@ function ProjectForm() {
           selectedProject.tools.split(",").map((tool: string) => tool.trim())
         );
       } else if (Array.isArray(selectedProject.tools)) {
-        setTools(selectedProject.tools.map((tool: any) => String(tool)));
+        console.log("selectedProject.tools", selectedProject.tools);
+        setTools(
+          selectedProject.tools.map((tool) => 
+            tool!.toString().trim())
+        );
       } else {
         setTools([]);
       }
