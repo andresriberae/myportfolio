@@ -3,18 +3,16 @@ import {Prisma} from "@prisma/client";
 import { prisma } from "@/libs/prisma";
 
 interface Params {
-  id: string;
+  params: { id: string };
 }
 
-export async function GET(request: Request, context: {params:Params}) {
-  const { params } = context;
+export async function GET(request: Request, { params }: Params) {
   try {
-    const {id} = await params;
     console.log("ID recibido:", params.id);
 
     const project = await prisma.project.findFirst({
       where: {
-        id: parseInt(id, 10), 
+        id: Number(params.id),
       },
     });
 
@@ -30,13 +28,11 @@ export async function GET(request: Request, context: {params:Params}) {
   }
 }
 
-export async function DELETE(request: Request, context: {params:Params}) {
-  const { params } = context;
+export async function DELETE(request: Request, { params }: Params) {
   try {
-    const {id} = await params;
     const deleteProject = await prisma.project.delete({
       where: {
-        id: parseInt(id, 10), 
+        id: Number(params.id),
       }
     })
 
@@ -54,16 +50,14 @@ export async function DELETE(request: Request, context: {params:Params}) {
   }
 }
 
-export async function PUT(request: Request, context: {params:Params}) {
-  const { params } = context;
+export async function PUT(request: Request, { params }: Params) {
   try {
-    const {id} = await params;
     const { title, description, imageUrl, repositoryUrl, projectUrl, tools, categories } =
       await request.json();
 
     const updateProject = await prisma.project.update({
       where: {
-        id: parseInt(id, 10),
+        id: Number(params.id),
       },
       data: {
         title,

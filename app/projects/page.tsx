@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState , useCallback} from "react";
+import { useEffect, useState} from "react";
 import { FaCode, FaEye } from "react-icons/fa";
 import { useProjects } from "@/context/ProjectContext";
 import Image from "next/image";
@@ -20,13 +20,11 @@ export default function Projects() {
 
   const categories = ["todos", "web", "móvil"];
   
-  // Hacer que loadProjects sea estable
-  const stableLoadProjects = useCallback(loadProjects, []);
 
   // Cargar proyectos al montar el componente
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    stableLoadProjects();
+    loadProjects();
   }, []);
 
 
