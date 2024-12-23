@@ -12,7 +12,7 @@ export default function NewPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadProjects();
-  }, []);
+  }, [loadProjects]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 font-[family-name:var(--font-geist-sans)] justify-items-center items-center">
