@@ -98,8 +98,13 @@ export const ProjectProvider = ({
       },
     });
     const updatedProject = await res.json();
+    const parsedProject = {
+      ...updatedProject,
+      tools: parseJsonArray(updatedProject.tools),
+      categories: parseJsonArray(updatedProject.categories),
+    };
 
-    setProjects(projects.map((p) => (p.id === id ? updatedProject : p)));
+    setProjects(projects.map((p) => (p.id === id ? parsedProject : p)));
   }
 
   return (

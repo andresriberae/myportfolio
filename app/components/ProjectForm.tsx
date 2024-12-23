@@ -24,17 +24,17 @@ function ProjectForm() {
       setImageUrl(selectedProject.imageUrl);
       setRepositoryUrl(selectedProject.repositoryUrl);
       setProjectUrl(selectedProject.projectUrl);
-
-      const parsedTools = Array.isArray(selectedProject.tools)
-        ? selectedProject.tools
-        : [];
-      const parsedCategories = Array.isArray(selectedProject.categories)
-        ? selectedProject.categories
-        : [];
-
-      // Convertimos todos los elementos a strings
-      setTools(parsedTools.map((tool: any) => String(tool)));
-      setCategories(parsedCategories.map((category: any) => String(category)));
+      // Verificamos si `tools` está definido antes de usarlo
+      if (typeof selectedProject.tools === "string") {
+        setTools(
+          selectedProject.tools.split(",").map((tool: string) => tool.trim())
+        );
+      } else if (Array.isArray(selectedProject.tools)) {
+        setTools(selectedProject.tools.map((tool: any) => String(tool)));
+      } else {
+        setTools([]);
+      }
+      setCategories(selectedProject.categories as string[]);
     }
   }, [selectedProject]);
 
@@ -143,7 +143,7 @@ function ProjectForm() {
           type="text"
           id="tools"
           name="tools"
-          value={tools.join(",")}
+          value={tools.join(", ")}
           onChange={(e) =>
             setTools(e.target.value.split(",").map((tool) => tool.trim()))
           }
@@ -168,8 +168,10 @@ function ProjectForm() {
                     setCategories([...categories, e.target.value]);
                   } else {
                     // Remover la categoría deseleccionada
-                    setCategories(
-                      categories.filter((cat) => cat !== e.target.value)
+                    setCategories((prevCategories) =>
+                      Array.isArray(prevCategories)
+                        ? prevCategories.filter((cat) => cat !== e.target.value)
+                        : []
                     );
                   }
                 }}
