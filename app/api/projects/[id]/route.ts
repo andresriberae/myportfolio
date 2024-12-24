@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
+interface Params {
+  params: { id: string };
+}
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  {params}: Params
 ) {
   try {
-    const { id } = context.params;
+    // const { id } = context.params;
 
     const project = await prisma.project.findFirst({
       where: {
-        id: Number(id),
+        id: Number(params.id),
       },
     });
 
@@ -27,13 +30,13 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,  
-  context: { params: { id: string } }
+  {params}: Params
 ) {
   try {
-    const { id } = context.params;
+    // const { id } = context.params;
     const deleteProject = await prisma.project.delete({
       where: {
-        id: Number(id),
+        id: Number(params.id),
       },
     });
 
@@ -46,16 +49,18 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest, 
-  context: { params: { id: string } }
+  {params}: Params
 ) {
+  console.log(params.id);
   try {
-    const { id } = context.params;
+    // const { id } = context.params;
     const { title, description, imageUrl, repositoryUrl, projectUrl, tools, categories } =
       await request.json();
 
+
     const updateProject = await prisma.project.update({
       where: {
-        id: Number(id),
+        id: Number(params.id),
       },
       data: {
         title,

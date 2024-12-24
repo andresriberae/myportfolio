@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { CreateProject, UpdateProject } from "@/app/interfaces/Projects";
 import { Project } from "@prisma/client";
 
@@ -36,7 +36,7 @@ export const ProjectProvider = ({
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  async function loadProjects() {
+  const loadProjects = useCallback(async () => {
     const res = await fetch("/api/projects");
     const data = await res.json();
     // Parseamos las propiedades tools y categories como arrays
@@ -47,7 +47,7 @@ export const ProjectProvider = ({
     }));
 
     setProjects(parsedProjects);
-  }
+  },[]);
 
   async function createProject(project: CreateProject) {
     const res = await fetch("/api/projects", {
@@ -90,6 +90,8 @@ export const ProjectProvider = ({
   }
 
   async function updateProject(id: number,  project: UpdateProject) {
+
+    // console.log(id);
     const res = await fetch(`/api/projects/${id}`, {
       method: "PUT",
       body: JSON.stringify(project),
