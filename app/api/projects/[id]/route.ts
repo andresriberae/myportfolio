@@ -1,18 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
-// Define un tipo explícito para los parámetros
-type RouteContext = {
-  params: {
-    id: string;
-  };
-};
+
 export async function GET(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await context.params;
+    const { id } = await params;
 
     const project = await prisma.project.findFirst({
       where: {
@@ -33,10 +28,10 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await context.params;
+    const { id } = await params;
     const deleteProject = await prisma.project.delete({
       where: {
         id: Number(id),
@@ -52,10 +47,10 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await context.params;
+    const { id } = await params;
     const { title, description, imageUrl, repositoryUrl, projectUrl, tools, categories } =
       await request.json();
 
