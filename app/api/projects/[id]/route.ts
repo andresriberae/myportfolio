@@ -4,10 +4,10 @@ import { prisma } from "@/libs/prisma";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params;
+    const id  = (await params).id;
 
     const project = await prisma.project.findFirst({
       where: {
@@ -28,10 +28,10 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params;
+    const id = (await params).id;
     const deleteProject = await prisma.project.delete({
       where: {
         id: Number(id),
@@ -47,10 +47,10 @@ export async function DELETE(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params;
+    const id = (await params).id;
     const { title, description, imageUrl, repositoryUrl, projectUrl, tools, categories } =
       await request.json();
 
