@@ -2,10 +2,6 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 import { Prisma } from "@prisma/client";
 
-interface Params {
-  params: { id: string };
-}
-
 export async function GET(
   request: Request,
   context: { params: { id: string } }
