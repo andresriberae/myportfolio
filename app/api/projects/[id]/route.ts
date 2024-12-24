@@ -12,7 +12,7 @@ export async function GET(
   context: RouteContext
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await context.params;
 
     const project = await prisma.project.findFirst({
       where: {
@@ -36,7 +36,7 @@ export async function DELETE(
   context: RouteContext
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await context.params;
     const deleteProject = await prisma.project.delete({
       where: {
         id: Number(id),
@@ -55,7 +55,7 @@ export async function PUT(
   context: RouteContext
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await context.params;
     const { title, description, imageUrl, repositoryUrl, projectUrl, tools, categories } =
       await request.json();
 
