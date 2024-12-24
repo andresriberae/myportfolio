@@ -1,12 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/libs/prisma";
 
-interface Params {
-  params: { id: string };
-}
 export async function GET(
   request: NextRequest,
-  {params}: Params
+  {params}: {params:{id: string}}
 ) {
   try {
     // const { id } = context.params;
@@ -29,8 +26,8 @@ export async function GET(
 }
 
 export async function DELETE(
-  request: NextRequest,  
-  {params}: Params
+  request: NextRequest,
+  {params}: {params:{id: string}}
 ) {
   try {
     // const { id } = context.params;
@@ -48,8 +45,8 @@ export async function DELETE(
 }
 
 export async function PUT(
-  request: NextRequest, 
-  {params}: Params
+  request: NextRequest,
+  {params}: {params:{id: string}}
 ) {
   console.log(params.id);
   try {
