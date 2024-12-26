@@ -1,56 +1,60 @@
 "use client";
 
-import { useEffect, useState} from "react";
+import { useState } from "react";
 import { FaCode, FaEye } from "react-icons/fa";
-import { useProjects } from "@/context/ProjectContext";
 import Image from "next/image";
-import { Project } from "@prisma/client";
-
-const truncateDescription = (description: string, maxLength = 45) => {
-  return description.length > maxLength
-    ? description.substring(0, maxLength) + "..."
-    : description;
-};
+import { Project } from "../interfaces/Projects";
 
 export default function Projects() {
-  const {projects, loadProjects} = useProjects();
-  
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("todos");
 
+  const basePath = process.env.NODE_ENV === "production" ? "/myportfolio" : ".";
+
   const categories = ["todos", "web", "móvil"];
-  
-
-  // Cargar proyectos al montar el componente
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    loadProjects();
-  }, [loadProjects]);
-
-
+  const projects: Project[] = [
+    {
+      title: "Alerta U",
+      description:
+        "Software de inteligencia de Negocios para la toma de decisiones y Gestión de Incidencias en el área de seguridad.",
+      imageUrl: "/images/project2.png",
+      repositoryUrl: "https://alerta-u.vercel.app/",
+      projectUrl: "https://alerta-u.vercel.app/",
+      tools: ["nextjs", "dart", "nestjs", "figma"],
+      categories: ["web", "móvil"], // Categoría
+    },
+    {
+      title: "Fastboard",
+      description: "Pizarra digital de colaboración.",
+      imageUrl: "/images/project1.jpg",
+      repositoryUrl: "https://alerta-u.vercel.app/",
+      projectUrl: "https://alerta-u.vercel.app/",
+      tools: ["reactjs", "nodejs", "mongodb"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "JobService",
+      description: "Aplicacion que brinda servicios de trabajos.",
+      imageUrl: "/images/project3.png",
+      repositoryUrl: "https://alerta-u.vercel.app/",
+      projectUrl: "https://alerta-u.vercel.app/",
+      tools: ["flutter", "dart", "firebase"],
+      categories: ["móvil"], // Categoría
+    },
+  ];
 
   // Filtrar proyectos según la categoría seleccionada
-  useEffect(() => {
-    if (selectedCategory === "todos") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(
-        projects.filter((project) => {
-          const category = JSON.stringify(project.categories)
-            .toLocaleLowerCase()
-            .replace(/"/g, "")
-            .replace(/[\[\]\\]/g, "")
-            .split(",")
-            .map((category) => {
-              return category.trim();
-            });
-
-          // return null;
-          return category.includes(selectedCategory);
-        })
-      );
-    }
-  }, [selectedCategory, projects]);
+  const filteredProjects =
+    selectedCategory === "todos"
+      ? projects
+      : projects.filter((project) =>
+          project.categories.includes(selectedCategory)
+        );
+        
+  const truncateDescription = (description: string, maxLength = 45) => {
+    return description.length > maxLength
+      ? description.substring(0, maxLength) + "..."
+      : description;
+  };
 
   return (
     <div className="container mx-auto px-4 py-4">
@@ -77,15 +81,15 @@ export default function Projects() {
 
       {/* Grid de proyectos */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {filteredProjects.map((project: Project) => (
+        {filteredProjects.map((project, index) => (
           <div
-            key={project.id}
+            key={index}
             className="group bg-white dark:bg-transparent shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow relative"
           >
             <div className="relative w-full h-48 overflow-hidden">
               {/* Imagen */}
               <Image
-                src={project.imageUrl}
+                src={`${basePath}${project.imageUrl}`}
                 alt={project.title}
                 layout="fill"
                 objectFit="cover"
@@ -135,7 +139,7 @@ export default function Projects() {
                     >
                       <Image
                         aria-hidden
-                        src={`./svg/${tool.trim().toLowerCase()}.svg`}
+                        src={`${basePath}/svg/${tool.trim().toLowerCase()}.svg`}
                         alt={tool}
                         width={24}
                         height={24}

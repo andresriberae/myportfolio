@@ -1,5 +1,10 @@
-import { Project } from "@prisma/client";
 
-export type CreateProject = Omit<Project, "id" | "createdAt" | "updatedAt">;
-
-export type UpdateProject = Partial<CreateProject>;
+export type Project = {
+  title: string;
+  description: string;
+  imageUrl: string;
+  repositoryUrl: string;
+  projectUrl: string;
+  tools: string[];
+  categories: string[];
+}

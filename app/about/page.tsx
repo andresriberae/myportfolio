@@ -13,6 +13,10 @@ import Link from "next/link";
 // };
 
 export default function Acerca() {
+
+  const basePath = process.env.NODE_ENV === "production" ? "/myportfolio" : ".";
+
+
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -68,7 +72,7 @@ export default function Acerca() {
         >
           <div className="rounded-full dark:bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden">
             <Image
-              src="./images/perfil1.png"
+              src={`${basePath}/images/perfil1.png`}
               alt="hero image"
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover"
               width={300}
