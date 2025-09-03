@@ -17,18 +17,27 @@ export default function Projects() {
       description:
         "Software de inteligencia de Negocios para la toma de decisiones y Gestión de Incidencias en el área de seguridad.",
       imageUrl: "/images/project2.png",
-      repositoryUrl: "https://alerta-u.vercel.app/",
-      projectUrl: "https://alerta-u.vercel.app/",
+      repositoryUrl: "https://gitlab.com/ehumerez/incidents-app",
+      projectUrl: "https://alertau.uagrm.edu.bo/",
       tools: ["nextjs", "dart", "nestjs", "figma"],
       categories: ["web", "móvil"], // Categoría
     },
     {
-      title: "Fastboard",
-      description: "Pizarra digital de colaboración.",
+      title: "The Restaurant Delivery",
+      description: "Landing Page responsive para un Restaurant",
       imageUrl: "/images/project1.jpg",
-      repositoryUrl: "https://alerta-u.vercel.app/",
-      projectUrl: "https://alerta-u.vercel.app/",
-      tools: ["reactjs", "nodejs", "mongodb"],
+      repositoryUrl: "https://github.com/wesordonez/feast-landing",
+      projectUrl: "https://letsfeast.co/",
+      tools: ["django", "postgresql", "tailwindcss", "figma"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "Dunosis",
+      description: "Landing Page responsive para la empresa Dunosis",
+      imageUrl: "/images/project2.jpg",
+      repositoryUrl: "https://www.dunosis.com/",
+      projectUrl: "https://www.dunosis.com/",
+      tools: ["django", "postgresql", "tailwindcss", "figma"],
       categories: ["web"], // Categoría
     },
     {
@@ -40,6 +49,15 @@ export default function Projects() {
       tools: ["flutter", "dart", "firebase"],
       categories: ["móvil"], // Categoría
     },
+    {
+      title: "Madcru Sangria",
+      description: "Tienda ecommerce de coquitos y sangria",
+      imageUrl: "/images/project3.jpg",
+      repositoryUrl: "www.madcrusangria.com",
+      projectUrl: "www.madcrusangria.com",
+      tools: ["nextjs", "postgresql", "figma", "prisma", "tailwindcss"],
+      categories: ["web"], // Categoría
+    },
   ];
 
   // Filtrar proyectos según la categoría seleccionada
@@ -49,7 +67,7 @@ export default function Projects() {
       : projects.filter((project) =>
           project.categories.includes(selectedCategory)
         );
-        
+
   const truncateDescription = (description: string, maxLength = 45) => {
     return description.length > maxLength
       ? description.substring(0, maxLength) + "..."
