@@ -26,7 +26,7 @@ export default function Projects() {
       title: "The Restaurant Delivery",
       description: "Landing Page responsive para un Restaurant",
       imageUrl: "/images/project1.jpg",
-      repositoryUrl: "https://github.com/wesordonez/feast-landing",
+      repositoryUrl: "hhttps://github.com/Dunosis/lets_feast",
       projectUrl: "https://letsfeast.co/",
       tools: ["django", "postgresql", "tailwindcss", "figma"],
       categories: ["web"], // Categoría
@@ -53,9 +53,72 @@ export default function Projects() {
       title: "Madcru Sangria",
       description: "Tienda ecommerce de coquitos y sangria",
       imageUrl: "/images/project3.jpg",
-      repositoryUrl: "www.madcrusangria.com",
-      projectUrl: "www.madcrusangria.com",
+      repositoryUrl: "https://github.com/Dunosis/madcru-sangria",
+      projectUrl: "https://www.madcrusangria.com",
       tools: ["nextjs", "postgresql", "figma", "prisma", "tailwindcss"],
+      categories: ["web", "móvil"], // Categoría
+    },
+    {
+      title: "WEST HUMBOLDT PARK DEVELOPMENT COUNCIL",
+      description: "West Humboldt Park Development Council's Mission is to work collaboratively to develop, implement and sustain processes that improve the quality of life for people, families and businesses in the West Humboldt Park community.",
+      imageUrl: "/images/project4.png",
+      repositoryUrl: "https://github.com/Dunosis/whpdc",
+      projectUrl: "https://whpdc.dunosis.cloud",
+      tools: ["django", "tailwindcss", "figma", "postgresql"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "Metaltela",
+      description: "Tienda ecommerce de mallas metálicas",
+      imageUrl: "/images/project5.png",
+      repositoryUrl: "https://github.com/Dunosis/metaltela",
+      projectUrl: "https://www.metaltela.com",
+      tools: ["django", "tailwindcss", "figma", "postgresql"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "Café Calidá",
+      description: "Tienda de prouctos de café",
+      imageUrl: "/images/project6.png",
+      repositoryUrl: "https://github.com/Dunosis/cafe_calida",
+      projectUrl: "https://www.cafecalida.coffee",
+      tools: ["django", "tailwindcss", "figma", "postgresql"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "Reynas Cakes",
+      description: "Tienda de postres personalizados",
+      imageUrl: "/images/project7.png",
+      repositoryUrl: "https://github.com/Dunosis/reinas-cakes",
+      projectUrl: "https://www.reinascakes.com",
+      tools: ["django", "tailwindcss", "figma", "postgresql"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "DK Handyman",
+      description: "Servicios de mantenimiento y reparación para el hogar",
+      imageUrl: "/images/project8.png",
+      repositoryUrl: "https://github.com/Dunosis/dk-handyman",
+      projectUrl: "https://dkhandyman.us.com",
+      tools: ["javascript", "css", "figma"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "Saras Cocina",
+      description: "Tienda de comida a domicilio casera mexicana",
+      imageUrl: "/images/project9.png",
+      repositoryUrl: "https://github.com/Dunosis/sarascocina",
+      projectUrl: "https://www.sarascocina.com",
+      tools: ["javascript", "css", "figma"],
+      categories: ["web"], // Categoría
+    },
+    {
+      title: "San Juan",
+      description: "Comunidad de vecinos de San Juan",
+      imageUrl: "/images/project10.png",
+      repositoryUrl: "https://github.com/Dunosis/sanjuansocial",
+      projectUrl: "http://www.sanjuansocial.club",
+      tools: ["javascript", "css", "figma"],
       categories: ["web"], // Categoría
     },
   ];
